@@ -25,3 +25,6 @@
 [submodule "bundle/vim-erlang"]
 	path = bundle/vim-erlang
 	url = git://github.com/oscarh/vimerl.git
+[submodule "bundle/vim-git-grep"]
+	path = bundle/vim-git-grep
+	url = git://github.com/tjennings/git-grep-vim.git

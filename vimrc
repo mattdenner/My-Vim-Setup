@@ -10,6 +10,19 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on       " load file type plugins + indentation
 
+"" Setup the status line as akitaonrails does...
+set laststatus=2
+set statusline=%f       "tail of the filename
+set statusline+=%h      "help file flag
+set statusline+=%y      "filetype
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+set statusline+=%{fugitive#statusline()}
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+
 "" Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup

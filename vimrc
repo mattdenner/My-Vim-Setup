@@ -44,6 +44,9 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 "" Various file type changes
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}   set ft=ruby
-au BufNewFile,BufRead *.json                                              set ft=javascript
-au BufRead,BufNewFile *.scss                                              set filetype=scss
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}   set ft=ruby
+autocmd BufRead,BufNewFile *.json                                              set ft=javascript
+autocmd BufRead,BufNewFile *.scss                                              set ft=scss
+
+autocmd BufRead,BufNewFile *.txt                                               set ft=text
+autocmd FileType text,markdown  set wrapmargin=20 | set linebreak | set wrap  " Ensure wrapping happens properly for text & markdown

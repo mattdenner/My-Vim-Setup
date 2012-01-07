@@ -42,7 +42,14 @@ set smartcase                   " ... unless they contain at least one capital l
 
 "" Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set wildignore+=*.o,*.obj,.git,.git/*,*.rbc,*.class,.svn,.svn/*,vendor/gems/*
+
+"" CtrlP setup
+let g:ctrlp_working_path_mode = 2                  " find project root for file lookup (looks for .git)
+let g:ctrlp_clear_cache_on_exit = 1                " clear the cache of filenames on exit
+let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache' " store the cache within the vim directory
+let g:ctrlp_dotfiles = 1                           " don't search directories or files that start with '.'
+let g:ctrlp_max_depth = 10                         " don't search deeper than 10 levels
 
 "" Various file type changes
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}   set ft=ruby

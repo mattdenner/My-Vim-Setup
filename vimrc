@@ -29,10 +29,18 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 "" Whitespace
-set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set nowrap                               " don't wrap lines
+set tabstop=2 shiftwidth=2 softtabstop=2 " a tab is two spaces
+set expandtab                            " use spaces, not tabs
+set backspace=indent,eol,start           " backspace through everything in insert mode
+
+"" Whitespace characters
+set list                   " display hidden characters
+set listchars=""           " Reset the listchars
+set listchars=tab:\ \      " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.     " show trailing spaces as dots
+set listchars+=extends:>   " show when the line goes off the right of the window
+set listchars+=precedes:<  " show when the line goes off the left of the window
 
 "" Searching
 set hlsearch                    " highlight matches

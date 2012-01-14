@@ -1,8 +1,6 @@
 "" GUI options
-set gfn=Andale\ Mono:h13    " Set the font
+set gfn=Menlo:h12
 set guioptions=aAce         " Hide the scrollbars
-color lucius                " jellybeans is good too
-set foldmethod=syntax       " Syntax folding
 set transparency=10         " Transparent background (experimental renderer)
 
 if has("gui_macvim")

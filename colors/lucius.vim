@@ -344,3 +344,10 @@ hi Visual           ctermfg=NONE            ctermbg=24
 " visual mode selection when vim is not owning the selection (x11 only)
 hi VisualNOS        guifg=fg                                        gui=underline
 hi VisualNOS        ctermfg=fg                                      cterm=underline
+
+" Html
+" ----
+hi HtmlBold         guifg=fg                                        gui=bold
+hi HtmlItalic       ctermfg=fg                                      gui=italic
+hi MkdCode          guifg=#80d38c                                   gui=none
+hi MkdCode          ctermfg=46                                      cterm=none

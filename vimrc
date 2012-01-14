@@ -5,6 +5,10 @@ syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 
+"" Appearance
+color lucius                " jellybeans is good too
+set foldmethod=syntax       " Syntax folding
+
 "" Enable pathogen so that we can put plugins under '.vim/bundle'
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -65,4 +69,4 @@ autocmd BufRead,BufNewFile *.json                                              s
 autocmd BufRead,BufNewFile *.scss                                              set ft=scss
 
 autocmd BufRead,BufNewFile *.txt                                               set ft=text
-autocmd FileType text,markdown  set wrapmargin=20 | set linebreak | set wrap  " Ensure wrapping happens properly for text & markdown
+autocmd FileType text,markdown,mkd  set wrapmargin=20 | set linebreak | set wrap  " Ensure wrapping happens properly for text & markdown

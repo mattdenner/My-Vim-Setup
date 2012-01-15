@@ -6,7 +6,10 @@ set transparency=10         " Transparent background (experimental renderer)
 if has("gui_macvim")
   "" Remap COMMAND+F to CTRL+P as it's more convenient!
   macmenu &Edit.Find.Find\.\.\. key=<nop>
-  ""nmap <d-f> <c-p>
   nmap <d-f> :CtrlP<cr>
-  nmap <d-F> :CtrlPMRU<cr>
+  nmap <d-F> :CtrlPTag<cr>
+
+  "" Remap COMMAND+G to Gundo
+  macmenu &Edit.Find.Find\ Next key=<nop>
+  nmap <d-g> :GundoToggle<cr>
 endif

@@ -8,6 +8,7 @@ set showcmd                     " display incomplete commands
 "" Appearance
 color lucius                " jellybeans is good too
 set foldmethod=syntax       " Syntax folding
+set foldlevelstart=4        " Any folds deeper than this will be closed
 
 "" Enable pathogen so that we can put plugins under '.vim/bundle'
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -62,6 +63,7 @@ let g:ctrlp_clear_cache_on_exit = 1                " clear the cache of filename
 let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache' " store the cache within the vim directory
 let g:ctrlp_dotfiles = 1                           " don't search directories or files that start with '.'
 let g:ctrlp_max_depth = 10                         " don't search deeper than 10 levels
+let g:ctrlp_extensions = ['buffertag', 'tag']
 
 "" Various file type changes
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}   set ft=ruby
@@ -69,4 +71,9 @@ autocmd BufRead,BufNewFile *.json                                              s
 autocmd BufRead,BufNewFile *.scss                                              set ft=scss
 
 autocmd BufRead,BufNewFile *.txt                                               set ft=text
-autocmd FileType text,markdown,mkd  set wrapmargin=20 | set linebreak | set wrap  " Ensure wrapping happens properly for text & markdown
+autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
+
+"" A whole heap of stuff I really can't ever remember but just want to note or
+"" may turn into something useful!
+"
+" qqF[cs])f(cs)]df]F(Pq => a macro for swapping markdown links which I *always* get the wrong way round!

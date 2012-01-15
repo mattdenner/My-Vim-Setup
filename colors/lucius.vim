@@ -351,3 +351,8 @@ hi HtmlBold         guifg=fg                                        gui=bold
 hi HtmlItalic       ctermfg=fg                                      gui=italic
 hi MkdCode          guifg=#80d38c                                   gui=none
 hi MkdCode          ctermfg=46                                      cterm=none
+
+" EasyMotion
+" ----------
+" hi EasyMotionTarget ctermbg=none ctermfg=green
+" hi EasyMotionShade  ctermbg=none ctermfg=blue

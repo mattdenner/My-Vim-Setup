@@ -16,6 +16,10 @@ call pathogen#infect()
 filetype plugin indent on       " load file type plugins + indentation
 runtime macros/matchit.vim      " Enable the matchit plugin
 
+"let g:pathogen_disabled = []
+"call add(g:pathogen_disabled, 'vim-textobj-user')
+"call add(g:pathogen_disabled, 'vim-textobj-rubyblock')
+
 "" Setup the status line as akitaonrails does...
 set laststatus=2
 set statusline=%f       "tail of the filename
@@ -42,7 +46,7 @@ set backspace=indent,eol,start           " backspace through everything in inser
 "" Whitespace characters
 set list                   " display hidden characters
 set listchars=""           " Reset the listchars
-set listchars=tab:\~\        " show tabs as '~'
+set listchars=tab:\~\~     " show tabs as '~~'
 set listchars+=trail:.     " show trailing spaces as dots
 set listchars+=extends:>   " show when the line goes off the right of the window
 set listchars+=precedes:<  " show when the line goes off the left of the window
@@ -60,7 +64,7 @@ set wildignore+=*.o,*.obj,.git,.git/*,*.rbc,*.class,.svn,.svn/*,vendor/gems/*
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                  " work with the current directory of the vim session
 let g:ctrlp_clear_cache_on_exit = 1                " clear the cache of filenames on exit
-let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache' " store the cache within the vim directory
+let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'  " store the cache within the vim directory
 let g:ctrlp_dotfiles = 0                           " don't search directories or files that start with '.'
 let g:ctrlp_max_depth = 10                         " don't search deeper than 10 levels
 let g:ctrlp_mruf_relative = 1                      " only work from the relative directory

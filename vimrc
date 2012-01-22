@@ -42,7 +42,7 @@ set backspace=indent,eol,start           " backspace through everything in inser
 "" Whitespace characters
 set list                   " display hidden characters
 set listchars=""           " Reset the listchars
-set listchars=tab:\ \      " a tab should display as "  ", trailing whitespace as "."
+set listchars=tab:\~\        " show tabs as '~'
 set listchars+=trail:.     " show trailing spaces as dots
 set listchars+=extends:>   " show when the line goes off the right of the window
 set listchars+=precedes:<  " show when the line goes off the left of the window

@@ -4,7 +4,7 @@ set guioptions=aAce         " Hide the scrollbars
 set transparency=10         " Transparent background (experimental renderer)
 
 "" Motion
-set relativenumber          " Relative line numbering
+autocmd FileType ruby setlocal relativenumber  " Relative line numbering
 
 if has("gui_macvim")
   "" Remap COMMAND+F to CTRL+P as it's more convenient!

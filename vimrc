@@ -62,14 +62,15 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,.git/*,*.rbc,*.class,.svn,.svn/*,vendor/gems/*
 
 "" CtrlP setup
-let g:ctrlp_working_path_mode = 0                  " work with the current directory of the vim session
-let g:ctrlp_clear_cache_on_exit = 1                " clear the cache of filenames on exit
-let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'  " store the cache within the vim directory
-let g:ctrlp_dotfiles = 0                           " don't search directories or files that start with '.'
-let g:ctrlp_max_depth = 10                         " don't search deeper than 10 levels
-let g:ctrlp_mruf_relative = 1                      " only work from the relative directory
+let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
+let g:ctrlp_clear_cache_on_exit = 1                              " clear the cache of filenames on exit
+let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'                " store the cache within the vim directory
+let g:ctrlp_dotfiles = 0                                         " don't search directories or files that start with '.'
+let g:ctrlp_max_depth = 10                                       " don't search deeper than 10 levels
+let g:ctrlp_mruf_relative = 1                                    " only work from the relative directory
 let g:ctrlp_extensions = ['buffertag', 'tag']
-let g:ctrlp_mruf_max = 1000                        " remember 1000 files
+let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
+let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
 
 "" Various file type changes
 autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby

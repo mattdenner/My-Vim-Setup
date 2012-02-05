@@ -84,3 +84,6 @@ autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak 
 "" may turn into something useful!
 "
 " qqF[cs])f(cs)]df]F(Pq => a macro for swapping markdown links which I *always* get the wrong way round!
+
+" A quick way to open the vim help in a vertical buffer
+command -nargs=? Vhelp vert botright help <args>

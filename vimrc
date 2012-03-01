@@ -71,6 +71,7 @@ let g:ctrlp_mruf_relative = 1                                    " only work fro
 let g:ctrlp_extensions = ['buffertag', 'tag']
 let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
 let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
+nmap <c-f> :CtrlP<cr>
 
 "" Various file type changes
 autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby

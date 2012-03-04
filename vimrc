@@ -81,6 +81,8 @@ autocmd BufRead,BufNewFile *.scss                                               
 autocmd BufRead,BufNewFile *.txt                                               set ft=text
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
+autocmd FileType ruby setlocal relativenumber  " Relative line numbering
+
 "" A whole heap of stuff I really can't ever remember but just want to note or
 "" may turn into something useful!
 "

@@ -4,6 +4,7 @@ set ruler
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
+set autoread                    " reload files that have change on disk but not in buffer
 
 "" Appearance
 color lucius                " jellybeans is good too

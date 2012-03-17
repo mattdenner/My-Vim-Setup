@@ -55,3 +55,6 @@
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = git@github.com:Lokaltog/vim-powerline.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = git@github.com:mattdenner/vim-scala.git

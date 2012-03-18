@@ -60,7 +60,10 @@ set smartcase                   " ... unless they contain at least one capital l
 
 "" Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,.git/*,*.rbc,*.class,.svn,.svn/*,vendor/gems/*
+set wildignore+=*.o,*.obj,*.rbc,*.class " Ignore compiled files
+set wildignore+=vendor/gems/*i          " Ignore Rails gems
+set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
+set wildignore+=*.png,*.gif             " Ignore images files
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
@@ -91,3 +94,7 @@ autocmd FileType ruby setlocal relativenumber  " Relative line numbering
 
 " A quick way to open the vim help in a vertical buffer
 command -nargs=? Vhelp vert botright help <args>
+
+"" Enable per-directory vimrc files but ensure they can't do anything nasty!
+set exrc
+set secure

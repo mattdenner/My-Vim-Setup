@@ -78,7 +78,7 @@ let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't wo
 nmap <c-f> :CtrlP<cr>
 
 "" Various file type changes
-autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
 autocmd BufRead,BufNewFile *.json                                                      set ft=javascript
 autocmd BufRead,BufNewFile *.scss                                                      set ft=scss
 

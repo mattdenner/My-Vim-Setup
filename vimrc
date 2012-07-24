@@ -58,6 +58,9 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+"" Ctags
+command CTags :!ctags -R
+
 "" Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,*.rbc,*.class " Ignore compiled files
@@ -76,6 +79,10 @@ let g:ctrlp_extensions = ['buffertag', 'tag']
 let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
 let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
 nmap <c-f> :CtrlP<cr>
+
+"" Clojure support
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
 
 "" Various file type changes
 autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
@@ -98,3 +105,6 @@ command -nargs=? Vhelp vert botright help <args>
 "" Enable per-directory vimrc files but ensure they can't do anything nasty!
 set exrc
 set secure
+
+"" Map some keys
+map Y y$

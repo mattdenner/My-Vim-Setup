@@ -58,3 +58,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = git@github.com:mattdenner/vim-scala.git
+[submodule "bundle/vim-textobj-word-column"]
+	path = bundle/vim-textobj-word-column
+	url = git@github.com:coderifous/textobj-word-column.vim.git

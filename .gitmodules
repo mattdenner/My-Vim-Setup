@@ -61,3 +61,6 @@
 [submodule "bundle/vim-textobj-word-column"]
 	path = bundle/vim-textobj-word-column
 	url = git@github.com:coderifous/textobj-word-column.vim.git
+[submodule "bundle/vim-tmux"]
+	path = bundle/vim-tmux
+	url = git@github.com:benmills/vimux.git

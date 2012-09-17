@@ -78,6 +78,7 @@ let g:ctrlp_mruf_relative = 1                                    " only work fro
 let g:ctrlp_extensions = ['buffertag', 'tag']
 let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
 let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
 nmap <c-f> :CtrlP<cr>
 
 "" Clojure support
@@ -85,7 +86,7 @@ let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
 
 "" Various file type changes
-autocmd BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
+autocmd BufRead,BufNewFile {Capfile,Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
 autocmd BufRead,BufNewFile *.json                                                      set ft=javascript
 autocmd BufRead,BufNewFile *.scss                                                      set ft=scss
 

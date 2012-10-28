@@ -95,6 +95,25 @@ autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak 
 
 autocmd FileType ruby setlocal relativenumber  " Relative line numbering
 
+"" Ensure that Vimux opens an sbt session when Scala files are opened, and when they are saved it
+"" executes 'test'.  Should be good enough for now
+let g:vimuxWindowOpen=0
+function ScalaOpen()
+  if (g:vimuxWindowOpen == 0)
+    call VimuxRunCommand('sbt')
+  endif
+  let g:vimuxWindowOpen=g:vimuxWindowOpen+1
+endfunction
+function ScalaClose()
+  let g:vimuxWindowOpen=g:vimuxWindowOpen-1
+  if (g:vimuxWindowOpen == 0)
+    call VimuxCloseRunner()
+  endif
+endfunction
+autocmd BufRead,BufNewFile *.scala call ScalaOpen()
+autocmd BufDelete *.scala call ScalaClose()
+autocmd BufWritePost *.scala call VimuxRunCommand('test')
+
 "" A whole heap of stuff I really can't ever remember but just want to note or
 "" may turn into something useful!
 "

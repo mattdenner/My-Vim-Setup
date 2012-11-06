@@ -67,3 +67,6 @@
 [submodule "bundle/vim-tmux"]
 	path = bundle/vim-tmux
 	url = git@github.com:NickLaMuro/vimux.git
+[submodule "bundle/vim-nginx"]
+	path = bundle/vim-nginx
+	url = git@github.com:vim-scripts/nginx.vim.git

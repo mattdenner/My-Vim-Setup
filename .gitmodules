@@ -67,3 +67,6 @@
 [submodule "bundle/vim-tmux"]
 	path = bundle/vim-tmux
 	url = git@github.com:NickLaMuro/vimux.git
+[submodule "bundle/vim-foreplay"]
+	path = bundle/vim-foreplay
+	url = git@github.com:tpope/vim-foreplay.git

@@ -66,7 +66,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,*.rbc,*.class " Ignore compiled files
 set wildignore+=vendor/gems/*i          " Ignore Rails gems
 set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
-set wildignore+=*.png,*.gif             " Ignore images files
+set wildignore+=*.png,*.gif,*.jpg       " Ignore images files
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session

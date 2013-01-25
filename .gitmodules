@@ -43,6 +43,7 @@
 [submodule "bundle/vim-textobj-user"]
 	path = bundle/vim-textobj-user
 	url = git@github.com:kana/vim-textobj-user.git
+  ignore = dirty
 [submodule "bundle/vim-mustache"]
 	path = bundle/vim-mustache
 	url = git@github.com:juvenn/mustache.vim.git
@@ -61,6 +62,7 @@
 [submodule "bundle/vim-textobj-word-column"]
 	path = bundle/vim-textobj-word-column
 	url = git@github.com:coderifous/textobj-word-column.vim.git
+  ignore = dirty
 [submodule "bundle/vim-tmux"]
 	path = bundle/vim-tmux
 	url = git@github.com:NickLaMuro/vimux.git

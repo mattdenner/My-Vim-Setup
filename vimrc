@@ -81,24 +81,6 @@ let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't wo
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
 nmap <c-f> :CtrlP<cr>
 
-"" Clojure support
-" To install nailgun:
-" brew install \
-"    https://raw.github.com/gist/3970910/ee016aaf9edbe351c7e2f718d70d19b5c4f46e80/vimclojure-nailgun-client.rb
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow      = 1
-let g:vimclojure#WantNailgun       = 1
-let g:vimclojure#SplitSize         = 5
-let clojureVersion = '1.4.0'
-let classpath = join([
-      \ ".",
-      \ $HOME.'/.homebrew/Cellar/clojure/'.clojureVersion.'/clojure-'.clojureVersion.'.jar'
-      \],
-      \ ":")
-
-nmap <silent> <Leader>sc :call VimuxRunCommand("lein nailgun") <cr>
-nmap <silent> <Leader>sC :call VimuxRunCommand("java -cp \"".classpath."\" clojure.main ; exit") <cr>
-
 "" Various file type changes
 autocmd BufRead,BufNewFile {Capfile,Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
 autocmd BufRead,BufNewFile *.json                                                      set ft=javascript

@@ -89,7 +89,7 @@ autocmd BufRead,BufNewFile *.scss                                               
 autocmd BufRead,BufNewFile *.txt                                               set ft=text
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
-autocmd FileType ruby setlocal relativenumber  " Relative line numbering
+autocmd FileType {ruby,scala} setlocal relativenumber  " Relative line numbering
 
 "" A whole heap of stuff I really can't ever remember but just want to note or
 "" may turn into something useful!
@@ -105,3 +105,15 @@ set secure
 
 "" Map some keys
 map Y y$
+
+"" Remap window movements to something more akin to tmux, which I've got used to!
+nmap <c-W>- :split<cr>
+nmap <c-W>\ :vsplit<cr>
+nnoremap <c-W>H 5<c-W><
+nnoremap <c-W>L 5<c-W>>
+nnoremap <c-W>K :resize +5<cr>
+nnoremap <c-W>J :resize -5<cr>
+" <CTRL>+W H - switch to vertical from horizontal
+" <CTRL>+W K - switch to horizontal from vertical
+" <CTRL>+W - - reduce window size
+" <CTRL>+W + - increase window size

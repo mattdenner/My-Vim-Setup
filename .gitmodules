@@ -75,3 +75,16 @@
 [submodule "bundle/vim-clojure-static"]
 	path = bundle/vim-clojure-static
 	url = git@github.com:guns/vim-clojure-static.git
+  ignore = dirty
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/vim-tlib"]
+	path = bundle/vim-tlib
+	url = git@github.com:tomtom/tlib_vim.git
+[submodule "bundle/vim-snipmate-snippets"]
+	path = bundle/vim-snipmate-snippets
+	url = git@github.com:honza/snipmate-snippets.git

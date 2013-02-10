@@ -117,3 +117,6 @@ nnoremap <c-W>J :resize -5<cr>
 " <CTRL>+W K - switch to horizontal from vertical
 " <CTRL>+W - - reduce window size
 " <CTRL>+W + - increase window size
+
+"" SnipMate configuration to ensure proper behaviour
+autocmd FileType snippets setlocal noexpandtab

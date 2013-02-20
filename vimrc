@@ -15,6 +15,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tsaleh/vim-align'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'kana/vim-textobj-user'
 " ... General vim enhancements
 " Git ...
 Bundle 'tpope/vim-fugitive'
@@ -25,30 +26,20 @@ Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 " ... HTML + Javascript
-" Ruby & Rails ...
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'coderifous/textobj-word-column.vim'
-" ... Ruby & Rails
 " Scala ...
+Bundle 'garbas/vim-snipmate'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
 Bundle 'mattdenner/vim-scala'
 " ... Scala
 " Clojure ...
 Bundle 'tpope/vim-foreplay'
 Bundle 'guns/vim-clojure-static'
 " ... Clojure
-" Snipmate ...
-Bundle 'garbas/vim-snipmate'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-" ... Snipmate
 " General ...
 Bundle 'plasticboy/vim-markdown'
 Bundle 'juvenn/mustache.vim'
-Bundle 'vim-scripts/nginx.vim'
 " ... General
 
 "" Rock off vundle ...
@@ -66,8 +57,6 @@ set autoread                    " reload files that have change on disk but not 
 color lucius                " jellybeans is good too
 set foldmethod=syntax       " Syntax folding
 set foldlevelstart=4        " Any folds deeper than this will be closed
-
-runtime macros/matchit.vim      " Enable the matchit plugin
 
 "" Setup the status line as akitaonrails does...
 set laststatus=2
@@ -107,7 +96,7 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 "" Ctags
-command CTags :!ctags -R
+command! CTags :!ctags -R
 
 "" Tab completion
 set wildmode=list:longest,list:full
@@ -130,26 +119,13 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -
 nmap <c-f> :CtrlP<cr>
 
 "" Various file type changes
-autocmd BufRead,BufNewFile {Capfile,Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.thor} set ft=ruby
 autocmd BufRead,BufNewFile *.json                                                      set ft=javascript
 autocmd BufRead,BufNewFile *.scss                                                      set ft=scss
 
 autocmd BufRead,BufNewFile *.txt                                               set ft=text
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
-autocmd FileType {ruby,scala} setlocal relativenumber  " Relative line numbering
-
-"" A whole heap of stuff I really can't ever remember but just want to note or
-"" may turn into something useful!
-"
-" qqF[cs])f(cs)]df]F(Pq => a macro for swapping markdown links which I *always* get the wrong way round!
-
-" A quick way to open the vim help in a vertical buffer
-command -nargs=? Vhelp vert botright help <args>
-
-"" Enable per-directory vimrc files but ensure they can't do anything nasty!
-set exrc
-set secure
+autocmd FileType scala setlocal relativenumber  " Relative line numbering
 
 "" Map some keys
 map Y y$
@@ -168,3 +144,8 @@ nnoremap <c-W>J :resize -5<cr>
 
 "" SnipMate configuration to ensure proper behaviour
 autocmd FileType snippets setlocal noexpandtab
+
+"" Sometimes you need to override this behaviour (like at work for instance!)
+if filereadable(glob("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

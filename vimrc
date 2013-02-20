@@ -1,5 +1,13 @@
-"" Rock on with vundle ...
 set nocompatible  " choose no compatibility with legacy vi
+set number
+set ruler
+syntax enable
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+set autoread                    " reload files that have change on disk but not in buffer
+let mapleader = ","             " remap the leader
+
+"" Rock on with vundle ...
 filetype on       " Mac OS X standard vim hack fix
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -20,6 +28,8 @@ Bundle 'kana/vim-textobj-user'
 " Git ...
 Bundle 'tpope/vim-fugitive'
 Bundle 'tjennings/git-grep-vim'
+map <leader>gs :Gstatus<cr>
+map <leader>gp :Git push<cr>
 " .. Git
 " HTML + Javascript ...
 Bundle 'othree/html5.vim'
@@ -30,7 +40,6 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
 Bundle 'mattdenner/vim-scala'
 " ... Scala
 " Clojure ...
@@ -44,14 +53,6 @@ Bundle 'juvenn/mustache.vim'
 
 "" Rock off vundle ...
 filetype plugin indent on
-
-"" And we're back in the world of normal vim ...
-set number
-set ruler
-syntax enable
-set encoding=utf-8
-set showcmd                     " display incomplete commands
-set autoread                    " reload files that have change on disk but not in buffer
 
 "" Appearance
 color lucius                " jellybeans is good too

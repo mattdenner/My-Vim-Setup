@@ -24,28 +24,49 @@ Bundle 'tsaleh/vim-align'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kana/vim-textobj-user'
+
+"" CtrlP setup
+let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
+let g:ctrlp_clear_cache_on_exit = 1                              " clear the cache of filenames on exit
+let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'                " store the cache within the vim directory
+let g:ctrlp_dotfiles = 0                                         " don't search directories or files that start with '.'
+let g:ctrlp_max_depth = 10                                       " don't search deeper than 10 levels
+let g:ctrlp_mruf_relative = 1                                    " only work from the relative directory
+let g:ctrlp_extensions = ['buffertag', 'tag']
+let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
+let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
+nmap <c-f> :CtrlP<cr>
 " ... General vim enhancements
+
 " Git ...
 Bundle 'tpope/vim-fugitive'
 Bundle 'tjennings/git-grep-vim'
 map <leader>gs :Gstatus<cr>
 map <leader>gp :Git push<cr>
 " .. Git
+
 " HTML + Javascript ...
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
+autocmd BufRead,BufNewFile *.json   set ft=javascript
 " ... HTML + Javascript
+
 " Scala ...
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattdenner/vim-scala'
+autocmd FileType snippets setlocal noexpandtab
+autocmd FileType scala    setlocal relativenumber
 " ... Scala
+
 " Clojure ...
 Bundle 'tpope/vim-foreplay'
 Bundle 'guns/vim-clojure-static'
 " ... Clojure
+
 " General ...
 Bundle 'plasticboy/vim-markdown'
 Bundle 'juvenn/mustache.vim'
@@ -106,27 +127,10 @@ set wildignore+=vendor/gems/*i          " Ignore Rails gems
 set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
 set wildignore+=*.png,*.gif,*.jpg       " Ignore images files
 
-"" CtrlP setup
-let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
-let g:ctrlp_clear_cache_on_exit = 1                              " clear the cache of filenames on exit
-let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'                " store the cache within the vim directory
-let g:ctrlp_dotfiles = 0                                         " don't search directories or files that start with '.'
-let g:ctrlp_max_depth = 10                                       " don't search deeper than 10 levels
-let g:ctrlp_mruf_relative = 1                                    " only work from the relative directory
-let g:ctrlp_extensions = ['buffertag', 'tag']
-let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
-let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
-nmap <c-f> :CtrlP<cr>
-
 "" Various file type changes
-autocmd BufRead,BufNewFile *.json                                                      set ft=javascript
-autocmd BufRead,BufNewFile *.scss                                                      set ft=scss
-
-autocmd BufRead,BufNewFile *.txt                                               set ft=text
+autocmd BufRead,BufNewFile *.scss   set ft=scss
+autocmd BufRead,BufNewFile *.txt    set ft=text
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
-
-autocmd FileType scala setlocal relativenumber  " Relative line numbering
 
 "" Map some keys
 map Y y$
@@ -142,9 +146,6 @@ nnoremap <c-W>J :resize -5<cr>
 " <CTRL>+W K - switch to horizontal from vertical
 " <CTRL>+W - - reduce window size
 " <CTRL>+W + - increase window size
-
-"" SnipMate configuration to ensure proper behaviour
-autocmd FileType snippets setlocal noexpandtab
 
 "" Sometimes you need to override this behaviour (like at work for instance!)
 if filereadable(glob("~/.vimrc.local"))

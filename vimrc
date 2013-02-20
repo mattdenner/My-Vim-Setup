@@ -1,4 +1,60 @@
-set nocompatible                " choose no compatibility with legacy vi
+"" Rock on with vundle ...
+set nocompatible  " choose no compatibility with legacy vi
+filetype on       " Mac OS X standard vim hack fix
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+"" Here are the plugins (don't comment inline as vundle doesn't like that!)
+" ... General vim enhancements ...
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'NickLaMuro/vimux'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tsaleh/vim-align'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-surround'
+" ... General vim enhancements
+" Git ...
+Bundle 'tpope/vim-fugitive'
+Bundle 'tjennings/git-grep-vim'
+" .. Git
+" HTML + Javascript ...
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'cakebaker/scss-syntax.vim'
+" ... HTML + Javascript
+" Ruby & Rails ...
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'coderifous/textobj-word-column.vim'
+" ... Ruby & Rails
+" Scala ...
+Bundle 'mattdenner/vim-scala'
+" ... Scala
+" Clojure ...
+Bundle 'tpope/vim-foreplay'
+Bundle 'guns/vim-clojure-static'
+" ... Clojure
+" Snipmate ...
+Bundle 'garbas/vim-snipmate'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+" ... Snipmate
+" General ...
+Bundle 'plasticboy/vim-markdown'
+Bundle 'juvenn/mustache.vim'
+Bundle 'vim-scripts/nginx.vim'
+" ... General
+
+"" Rock off vundle ...
+filetype plugin indent on
+
+"" And we're back in the world of normal vim ...
 set number
 set ruler
 syntax enable
@@ -11,15 +67,7 @@ color lucius                " jellybeans is good too
 set foldmethod=syntax       " Syntax folding
 set foldlevelstart=4        " Any folds deeper than this will be closed
 
-"" Enable pathogen so that we can put plugins under '.vim/bundle'
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-filetype plugin indent on       " load file type plugins + indentation
 runtime macros/matchit.vim      " Enable the matchit plugin
-
-"let g:pathogen_disabled = []
-"call add(g:pathogen_disabled, 'vim-textobj-user')
-"call add(g:pathogen_disabled, 'vim-textobj-rubyblock')
 
 "" Setup the status line as akitaonrails does...
 set laststatus=2

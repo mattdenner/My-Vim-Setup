@@ -7,6 +7,9 @@ set showcmd                     " display incomplete commands
 set autoread                    " reload files that have change on disk but not in buffer
 let mapleader = ","             " remap the leader
 
+nmap <leader>vr :source $MYVIMRC<cr>
+nmap <leader>ve :edit $MYVIMRC<cr>
+
 "" Rock on with vundle ...
 filetype on       " Mac OS X standard vim hack fix
 filetype off
@@ -35,8 +38,11 @@ let g:ctrlp_mruf_relative = 1                                    " only work fro
 let g:ctrlp_extensions = ['buffertag', 'tag']
 let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
 let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
+"let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
 nmap <c-f> :CtrlP<cr>
+nmap <leader>ff :CtrlP<cr>
+nmap <leader>fb :CtrlPBuffer<cr>
+nmap <leader>fu :CtrlPMRU<cr>
 " ... General vim enhancements
 
 " Git ...

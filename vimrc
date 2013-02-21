@@ -42,8 +42,8 @@ nmap <c-f> :CtrlP<cr>
 " Git ...
 Bundle 'tpope/vim-fugitive'
 Bundle 'tjennings/git-grep-vim'
-map <leader>gs :Gstatus<cr>
-map <leader>gp :Git push<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gp :Git push<cr>
 " .. Git
 
 " HTML + Javascript ...

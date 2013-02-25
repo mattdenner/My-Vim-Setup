@@ -66,12 +66,13 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattdenner/vim-scala'
-autocmd FileType snippets setlocal noexpandtab
-autocmd FileType scala    setlocal relativenumber
-autocmd FileType scala    vmap <leader>a=> :Align =><cr>
-autocmd FileType scala    vmap <leader>a=  :Align =<cr>
-autocmd FileType scala    set foldmethod=syntax       " Syntax folding
-autocmd FileType scala    set foldlevelstart=4        " Any folds deeper than this will be closed
+autocmd FileType snippets        setlocal noexpandtab
+autocmd FileType scala,scalatest setlocal relativenumber
+autocmd FileType scala,scalatest vmap <leader>a=> :Align =><cr>
+autocmd FileType scala,scalatest vmap <leader>a=  :Align =<cr>
+autocmd FileType scala,scalatest setlocal foldmethod=syntax           " Syntax folding
+autocmd FileType scala,scalatest setlocal foldlevelstart=4            " Any folds deeper than this will be closed
+autocmd FileType scala,scalatest setlocal wildignore+=target,*.class  " Ignore sbt generated files
 " ... Scala
 
 " Clojure ...
@@ -132,8 +133,7 @@ command! CTags :!ctags -R
 
 "" Tab completion
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,*.rbc,*.class " Ignore compiled files
-set wildignore+=vendor/gems/*i          " Ignore Rails gems
+set wildignore+=*.o,*.obj               " Ignore compiled files
 set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
 set wildignore+=*.png,*.gif,*.jpg       " Ignore images files
 

@@ -23,7 +23,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'NickLaMuro/vimux'
 Bundle 'kien/ctrlp.vim'
-Bundle 'tsaleh/vim-align'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kana/vim-textobj-user'
@@ -62,12 +61,17 @@ autocmd BufRead,BufNewFile *.json   set ft=javascript
 " ... HTML + Javascript
 
 " Scala ...
+Bundle 'tsaleh/vim-align'
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattdenner/vim-scala'
 autocmd FileType snippets setlocal noexpandtab
 autocmd FileType scala    setlocal relativenumber
+autocmd FileType scala    vmap <leader>a=> :Align =><cr>
+autocmd FileType scala    vmap <leader>a=  :Align =<cr>
+autocmd FileType scala    set foldmethod=syntax       " Syntax folding
+autocmd FileType scala    set foldlevelstart=4        " Any folds deeper than this will be closed
 " ... Scala
 
 " Clojure ...
@@ -85,8 +89,6 @@ filetype plugin indent on
 
 "" Appearance
 color lucius                " jellybeans is good too
-set foldmethod=syntax       " Syntax folding
-set foldlevelstart=4        " Any folds deeper than this will be closed
 
 "" Setup the status line as akitaonrails does...
 set laststatus=2

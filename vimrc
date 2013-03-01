@@ -68,10 +68,6 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'mattdenner/vim-scala'
 autocmd FileType snippets        setlocal noexpandtab
 autocmd FileType scala,scalatest setlocal relativenumber
-autocmd FileType scala,scalatest vmap <leader>a=> :Align =><cr>
-autocmd FileType scala,scalatest vmap <leader>a=  :Align =<cr>
-autocmd FileType scala,scalatest setlocal foldmethod=syntax           " Syntax folding
-autocmd FileType scala,scalatest setlocal foldlevelstart=4            " Any folds deeper than this will be closed
 autocmd FileType scala,scalatest setlocal wildignore+=target,*.class  " Ignore sbt generated files
 " ... Scala
 

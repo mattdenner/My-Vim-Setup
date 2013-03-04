@@ -9,6 +9,7 @@ let mapleader = ","             " remap the leader
 
 nmap <leader>vr :source $MYVIMRC<cr>
 nmap <leader>ve :edit $MYVIMRC<cr>
+nmap <leader>vg :!cd $HOME/.vim ; git fetch --all ; git merge origin/master<cr>
 
 "" Rock on with vundle ...
 filetype on       " Mac OS X standard vim hack fix

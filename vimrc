@@ -44,13 +44,19 @@ nmap <leader>fb :CtrlPBuffer<cr>
 nmap <leader>fu :CtrlPMRU<cr>
 " ... General vim enhancements
 
+" Ack ...
+Bundle 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nmap <leader>ack :Ack 
+" ... Ack
+
 " Git ...
 Bundle 'tpope/vim-fugitive'
-Bundle 'tjennings/git-grep-vim'
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gd :Gdiff<cr>
+nmap <leader>gg <leader>ack
 " .. Git
 
 " HTML + Javascript ...

@@ -25,7 +25,6 @@ Bundle 'NickLaMuro/vimux'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'kana/vim-textobj-user'
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
@@ -43,6 +42,12 @@ nmap <leader>ff :CtrlP<cr>
 nmap <leader>fb :CtrlPBuffer<cr>
 nmap <leader>fu :CtrlPMRU<cr>
 " ... General vim enhancements
+
+"" Text objects ...
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-fold'
+Bundle 'kana/vim-textobj-indent'
+"" ... Text objects
 
 " Ack ...
 Bundle 'mileszs/ack.vim'

@@ -52,11 +52,16 @@ nmap <leader>ack :Ack
 
 " Git ...
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gg <leader>ack
+nmap <leader>gD :GitGutterLineHighlightsToggle<cr>
+nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+let g:gitgutter_sign_column_always = 1
 " .. Git
 
 " HTML + Javascript ...

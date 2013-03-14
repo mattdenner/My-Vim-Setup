@@ -26,7 +26,6 @@ Bundle 'NickLaMuro/vimux'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
-Bundle 'kana/vim-textobj-user'
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
@@ -45,13 +44,30 @@ nmap <leader>fb :CtrlPBuffer<cr>
 nmap <leader>fu :CtrlPMRU<cr>
 " ... General vim enhancements
 
+"" Text objects ...
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-fold'
+Bundle 'kana/vim-textobj-indent'
+"" ... Text objects
+
+" Ack ...
+Bundle 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nmap <leader>ack :Ack 
+" ... Ack
+
 " Git ...
 Bundle 'tpope/vim-fugitive'
-Bundle 'tjennings/git-grep-vim'
+Bundle 'airblade/vim-gitgutter'
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gd :Gdiff<cr>
+nmap <leader>gg <leader>ack
+nmap <leader>gD :GitGutterLineHighlightsToggle<cr>
+nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+let g:gitgutter_sign_column_always = 1
 " .. Git
 
 " HTML + Javascript ...

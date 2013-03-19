@@ -27,6 +27,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tsaleh/vim-align'
+autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
@@ -77,6 +78,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'juvenn/mustache.vim'
 autocmd BufRead,BufNewFile *.json   set ft=javascript
+autocmd BufRead,BufNewFile *.scss   set ft=scss
 " ... HTML + Javascript
 
 "" Rock off vundle ...
@@ -132,9 +134,7 @@ set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
 set wildignore+=*.png,*.gif,*.jpg       " Ignore images files
 
 "" Various file type changes
-autocmd BufRead,BufNewFile *.scss   set ft=scss
 autocmd BufRead,BufNewFile *.txt    set ft=text
-autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
 "" Map some keys
 map Y y$

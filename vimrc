@@ -22,10 +22,11 @@ Bundle 'gmarik/vundle'
 " ... General vim enhancements ...
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'NickLaMuro/vimux'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'tsaleh/vim-align'
 
 "" CtrlP setup
 let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
@@ -74,29 +75,9 @@ let g:gitgutter_sign_column_always = 1
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'juvenn/mustache.vim'
 autocmd BufRead,BufNewFile *.json   set ft=javascript
 " ... HTML + Javascript
-
-" Scala ...
-Bundle 'tsaleh/vim-align'
-Bundle 'garbas/vim-snipmate'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'mattdenner/vim-scala'
-autocmd FileType snippets        setlocal noexpandtab
-autocmd FileType scala,scalatest setlocal relativenumber
-autocmd FileType scala,scalatest setlocal wildignore+=target,*.class  " Ignore sbt generated files
-" ... Scala
-
-" Clojure ...
-Bundle 'tpope/vim-foreplay'
-Bundle 'guns/vim-clojure-static'
-" ... Clojure
-
-" General ...
-Bundle 'plasticboy/vim-markdown'
-Bundle 'juvenn/mustache.vim'
-" ... General
 
 "" Rock off vundle ...
 filetype plugin indent on

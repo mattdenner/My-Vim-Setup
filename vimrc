@@ -86,6 +86,10 @@ filetype plugin indent on
 
 "" Appearance
 color lucius                " jellybeans is good too
+hi link SignColumn LineNr
+hi GitGutterAdd    guifg=#009900 guibg=#363946 ctermfg=2 ctermbg=237 gui=none cterm=none
+hi GitGutterChange guifg=#bbbb00 guibg=#363946 ctermfg=3 ctermbg=237 gui=none cterm=none
+hi GitGutterDelete guifg=#ff2222 guibg=#363946 ctermfg=1 ctermbg=237 gui=none cterm=none
 
 "" Setup the status line as akitaonrails does...
 set laststatus=2

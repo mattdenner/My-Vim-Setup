@@ -17,8 +17,10 @@ autocmd FileType scala,scalatest setlocal wildignore+=target,*.class  " Ignore s
 " ... Scala
 
 " Clojure ...
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
+Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 " ... Clojure
 
 filetype plugin indent on

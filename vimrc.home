@@ -21,6 +21,11 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
+Bundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
+let g:rainbow_ctermfgs = []
+let g:rainbow_base = 125
+for i in [5,4,3,2,1,0] | call add(g:rainbow_ctermfgs, g:rainbow_base+(i*6)) | endfor
+autocmd FileType clojure call rainbow#activate()
 " ... Clojure
 
 filetype plugin indent on

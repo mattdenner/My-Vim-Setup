@@ -60,16 +60,24 @@ nmap <leader>ack :Ack
 
 " Git ...
 Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gg <leader>ack
-nmap <leader>gD :GitGutterLineHighlightsToggle<cr>
-nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
-nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
-let g:gitgutter_sign_column_always = 1
+
+Bundle 'mhinz/vim-signify'
+let g:signify_mapping_next_hunk = ']h'
+let g:signify_mapping_prev_hunk = '[h'
+
+let g:signify_sign_color_guifg_add      = '#009900'
+let g:signify_sign_color_guifg_delete   = '#ff2222'
+let g:signify_sign_color_guifg_change   = '#bbbb00'
+let g:signify_sign_color_guibg          = '#363946'
+let g:signify_sign_color_ctermfg_add    = 2
+let g:signify_sign_color_ctermfg_delete = 1
+let g:signify_sign_color_ctermfg_change = 3
+let g:signify_sign_color_ctermbg        = 237
 " .. Git
 
 " HTML + Javascript ...
@@ -87,9 +95,6 @@ filetype plugin indent on
 "" Appearance
 color lucius                " jellybeans is good too
 hi SignColumn      guifg=#818698 guibg=#363946 ctermfg=102 ctermbg=237 gui=none cterm=none
-hi GitGutterAdd    guifg=#009900 guibg=#363946 ctermfg=2   ctermbg=237 gui=none cterm=none
-hi GitGutterChange guifg=#bbbb00 guibg=#363946 ctermfg=3   ctermbg=237 gui=none cterm=none
-hi GitGutterDelete guifg=#ff2222 guibg=#363946 ctermfg=1   ctermbg=237 gui=none cterm=none
 
 "" Setup the status line as akitaonrails does...
 set laststatus=2

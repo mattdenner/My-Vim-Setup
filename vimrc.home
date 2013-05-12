@@ -7,18 +7,13 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 autocmd FileType snippets        setlocal noexpandtab
+Bundle 'mattdenner/vim-snippets'
 " ... SnipMate
-
-" Scala ...
-Bundle 'NickLaMuro/vimux'
-Bundle 'mattdenner/vim-scala'
-autocmd FileType scala,scalatest setlocal relativenumber
-autocmd FileType scala,scalatest setlocal wildignore+=target,*.class  " Ignore sbt generated files
-" ... Scala
 
 " Clojure ...
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+Bundle 'dgrnbrg/vim-redl'
 Bundle 'guns/vim-clojure-static'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 Bundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
@@ -26,6 +21,13 @@ let g:rainbow_ctermfgs = []
 let g:rainbow_base = 125
 for i in [5,4,3,2,1,0] | call add(g:rainbow_ctermfgs, g:rainbow_base+(i*6)) | endfor
 autocmd FileType clojure call rainbow#activate()
+
+" Find it easier to remember 'up' and 'down' for this
+autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
+autocmd FileType clojure command! -b StartRepl :execute "Start! lein repl" | :echo "Waiting for repl ..." | :sleep 15 | :Repl
 " ... Clojure
+
+" Trying these out, they may disappear!
+" ... may disappear!
 
 filetype plugin indent on

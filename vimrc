@@ -26,7 +26,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'tsaleh/vim-align'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-dispatch'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
 "" CtrlP setup
@@ -151,14 +152,6 @@ map Y y$
 "" Remap window movements to something more akin to tmux, which I've got used to!
 nmap <c-W>- :split<cr>
 nmap <c-W>\ :vsplit<cr>
-nnoremap <c-W>H 5<c-W><
-nnoremap <c-W>L 5<c-W>>
-nnoremap <c-W>K :resize +5<cr>
-nnoremap <c-W>J :resize -5<cr>
-" <CTRL>+W H - switch to vertical from horizontal
-" <CTRL>+W K - switch to horizontal from vertical
-" <CTRL>+W - - reduce window size
-" <CTRL>+W + - increase window size
 
 "" Sometimes you need to override this behaviour (like at work for instance!)
 if filereadable(glob("~/.vimrc.local"))

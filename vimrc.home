@@ -16,11 +16,14 @@ Bundle 'tpope/vim-classpath'
 Bundle 'dgrnbrg/vim-redl'
 Bundle 'guns/vim-clojure-static'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
-Bundle 'vim-scripts/Rainbow-Parentheses-Improved-and2'
-let g:rainbow_ctermfgs = []
-let g:rainbow_base = 125
-for i in [5,4,3,2,1,0] | call add(g:rainbow_ctermfgs, g:rainbow_base+(i*6)) | endfor
-autocmd FileType clojure call rainbow#activate()
+Bundle 'amdt/vim-niji'
+let g:niji_light_colours = [ [ 'darkgray', '-' ],
+                           \ [ 'grey', '-' ],
+                           \ [ 'darkgreen', '-' ],
+                           \ [ 'darkcyan', '-' ],
+                           \ [ 'darkyellow', '-' ],
+                           \ [ 'darkmagenta', '-' ],
+                           \ [ 'darkred', '-' ] ]
 
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W

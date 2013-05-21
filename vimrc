@@ -153,6 +153,9 @@ map Y y$
 nmap <c-W>- :split<cr>
 nmap <c-W>\ :vsplit<cr>
 
+"" Try to speed up startup time when RVM is installed
+let g:ruby_path = system('rvm current')
+
 "" Sometimes you need to override this behaviour (like at work for instance!)
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local

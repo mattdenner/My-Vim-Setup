@@ -16,14 +16,21 @@ Bundle 'tpope/vim-classpath'
 Bundle 'dgrnbrg/vim-redl'
 Bundle 'guns/vim-clojure-static'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
-Bundle 'amdt/vim-niji'
-let g:niji_light_colours = [ [ 'darkgray', '-' ],
-                           \ [ 'grey', '-' ],
-                           \ [ 'darkgreen', '-' ],
-                           \ [ 'darkcyan', '-' ],
-                           \ [ 'darkyellow', '-' ],
-                           \ [ 'darkmagenta', '-' ],
-                           \ [ 'darkred', '-' ] ]
+Bundle 'kien/rainbow_parentheses.vim'
+let g:rbpt_colorpairs = [
+      \ [ 'darkred',     '-' ],
+      \ [ 'darkmagenta', '-' ],
+      \ [ 'darkyellow',  '-' ],
+      \ [ 'darkcyan',    '-' ],
+      \ [ 'darkgreen',   '-' ],
+      \ [ 'grey',        '-' ],
+      \ [ 'darkgray',    '-' ]
+      \ ]
+let g:rbpt_max = 7
+
+" Turn on the nice rainbow parentheses but only for round brackets!
+autocmd FileType clojure RainbowParenthesesActivate
+autocmd Syntax clojure RainbowParenthesesLoadRound
 
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W

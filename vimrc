@@ -22,7 +22,6 @@ Bundle 'gmarik/vundle'
 " ... General vim enhancements ...
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'plasticboy/vim-markdown'
@@ -30,34 +29,25 @@ Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-dispatch'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
-"" CtrlP setup
-let g:ctrlp_working_path_mode = 0                                " work with the current directory of the vim session
-let g:ctrlp_clear_cache_on_exit = 1                              " clear the cache of filenames on exit
-let g:ctrlp_cache_dir = $HOME.'/.vim/ctrlp_cache'                " store the cache within the vim directory
-let g:ctrlp_dotfiles = 0                                         " don't search directories or files that start with '.'
-let g:ctrlp_max_depth = 10                                       " don't search deeper than 10 levels
-let g:ctrlp_mruf_relative = 1                                    " only work from the relative directory
-let g:ctrlp_extensions = ['buffertag', 'tag']
-let g:ctrlp_mruf_max = 1000                                      " remember 1000 files
-let g:ctrlp_prompt_mappings = { 'PrtClearCache()': [ '<c-r>' ] } " F5 doesn't work on Leopard so remap it
-"let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " use git 'cos it's quicker
-nmap <c-f> :CtrlP<cr>
-nmap <leader>ff :CtrlP<cr>
-nmap <leader>fb :CtrlPBuffer<cr>
-nmap <leader>fu :CtrlPMRU<cr>
-" ... General vim enhancements
+" Unite setup
+" ... note: (cd bundle/vimproc.vim ; make -f make_mac.mak)
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'tsukkee/unite-tag'
+nnoremap <c-f> :Unite buffer file<cr>
+nnoremap <leader>open :Unite buffer file<cr>
+nnoremap <leader>tag :Unite tag<cr>
+nnoremap <leader>ack :Unite grep:.<cr>
+let g:unite_source_grep_command='ag'
+let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
+let g:unite_source_grep_recursive_opt=''
+" ... Unite setup
 
 "" Text objects ...
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-fold'
 Bundle 'kana/vim-textobj-indent'
 "" ... Text objects
-
-" Ack ...
-Bundle 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
-nmap <leader>ack :Ack 
-" ... Ack
 
 " Git ...
 Bundle 'tpope/vim-fugitive'

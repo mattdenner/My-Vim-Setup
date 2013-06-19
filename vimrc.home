@@ -35,9 +35,11 @@ autocmd Syntax clojure RainbowParenthesesLoadRound
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
 autocmd FileType clojure command! -b StartRepl :execute "Start! lein repl" | :echo "Waiting for repl ..." | :sleep 15 | :Repl
+autocmd FileType clojure set nowrap
 " ... Clojure
 
 " Trying these out, they may disappear!
 " ... may disappear!
 
 filetype plugin indent on
+

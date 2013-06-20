@@ -34,7 +34,9 @@ autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak 
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-tag'
-nnoremap <c-f> :Unite buffer file<cr>
+call unite#custom_source('file_rec', 'matchers', ['matcher_fuzzy'])
+let g:unite_enable_start_insert=1
+nnoremap <c-f> :Unite buffer file_mru file_rec/async:!<cr>
 nnoremap <leader>open :Unite buffer file<cr>
 nnoremap <leader>tag :Unite tag<cr>
 nnoremap <leader>ack :Unite grep:.<cr>

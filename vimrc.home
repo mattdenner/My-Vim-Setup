@@ -11,9 +11,6 @@ Bundle 'mattdenner/vim-snippets'
 " ... SnipMate
 
 " Clojure ...
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'dgrnbrg/vim-redl'
 Bundle 'guns/vim-clojure-static'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -34,7 +31,6 @@ autocmd Syntax clojure RainbowParenthesesLoadRound
 
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
-autocmd FileType clojure command! -b StartRepl :execute "Start! lein repl" | :echo "Waiting for repl ..." | :sleep 15 | :Repl
 autocmd FileType clojure set nowrap
 " ... Clojure
 

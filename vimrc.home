@@ -2,13 +2,8 @@
 "" It only pulls in a few plugins that might be of interest to me.
 filetype off
 
-" SnipMate ...
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-autocmd FileType snippets        setlocal noexpandtab
-Bundle 'mattdenner/vim-snippets'
-" ... SnipMate
+"" Trying out reattach-to-user-namespace
+set clipboard=unnamed
 
 " Clojure ...
 Bundle 'guns/vim-clojure-static'
@@ -35,6 +30,8 @@ autocmd FileType clojure set nowrap
 " ... Clojure
 
 " Trying these out, they may disappear!
+Bundle 'SirVer/ultisnips'
+Bundle 'dag/vim2hs'
 " ... may disappear!
 
 filetype plugin indent on

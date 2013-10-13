@@ -20,12 +20,15 @@ Bundle 'gmarik/vundle'
 
 "" Here are the plugins (don't comment inline as vundle doesn't like that!)
 " ... General vim enhancements ...
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'plasticboy/vim-markdown'
+Bundle 'kana/vim-smartinput'
+Bundle 'regedarek/ZoomWin'
 Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround'
+
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-dispatch'
+
+Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
 " Unite setup
@@ -127,6 +130,9 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj               " Ignore compiled files
 set wildignore+=.git,.git/*,.svn,.svn/* " Ignore SCM related files
 set wildignore+=*.png,*.gif,*.jpg       " Ignore images files
+
+"" Trying out reattach-to-user-namespace
+set clipboard=unnamed
 
 "" Various file type changes
 autocmd BufRead,BufNewFile *.txt    set ft=text

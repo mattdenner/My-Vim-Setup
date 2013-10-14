@@ -21,9 +21,12 @@ Bundle 'gmarik/vundle'
 "" Here are the plugins (don't comment inline as vundle doesn't like that!)
 " ... General vim enhancements ...
 Bundle 'kana/vim-smartinput'
-Bundle 'regedarek/ZoomWin'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
+
+" Keep the behaviour of window zooming in vim close to that of tmux
+Bundle 'regedarek/ZoomWin'
+nnoremap <c-w>= :ZoomWin<cr>
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-dispatch'

@@ -23,6 +23,9 @@ autocmd Syntax clojure RainbowParenthesesLoadRound
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
 autocmd FileType clojure set nowrap
+
+" Setup the custom project types
+let projectTypeChecks['project.clj'] = 'leiningen'
 " ... Clojure
 
 " Trying these out, they may disappear!

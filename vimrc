@@ -26,7 +26,6 @@ Bundle 'tpope/vim-surround'
 
 " Keep the behaviour of window zooming in vim close to that of tmux
 Bundle 'regedarek/ZoomWin'
-nnoremap <c-w>= :ZoomWin<cr>
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-dispatch'
@@ -143,8 +142,9 @@ autocmd BufRead,BufNewFile *.txt    set ft=text
 map Y y$
 
 "" Remap window movements to something more akin to tmux, which I've got used to!
-nmap <c-W>- :split<cr>
-nmap <c-W>\ :vsplit<cr>
+nnoremap <c-W>- :split<cr>
+nnoremap <c-W>\ :vsplit<cr>
+nnoremap <c-w>= :ZoomWin<cr>
 
 "" Try to speed up startup time when RVM is installed
 let g:ruby_path = system('rvm current')

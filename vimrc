@@ -39,10 +39,9 @@ autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak 
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-tag'
-call unite#custom_source('file_rec', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
 let g:unite_enable_start_insert=1
-nnoremap <c-f> :Unite buffer file_mru file_rec/async:!<cr>
-nnoremap <leader>open :Unite buffer file_rec/async:!<cr>
+nnoremap <c-f> :Unite -buffer-name=files buffer file_rec/async:!<cr>
 nnoremap <leader>tag :Unite tag<cr>
 nnoremap <leader>ack :Unite grep:.<cr>
 let g:unite_source_grep_command='ag'

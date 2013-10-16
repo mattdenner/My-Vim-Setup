@@ -2,73 +2,12 @@
 "" It only pulls in a few plugins that might be of interest to me.
 filetype off
 
-" Clojure ...
-Bundle 'guns/vim-clojure-static'
-Bundle 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-      \ [ 'darkred',     '-' ],
-      \ [ 'darkmagenta', '-' ],
-      \ [ 'darkyellow',  '-' ],
-      \ [ 'darkcyan',    '-' ],
-      \ [ 'darkgreen',   '-' ],
-      \ [ 'grey',        '-' ],
-      \ [ 'darkgray',    '-' ]
-      \ ]
-let g:rbpt_max = 7
-
-" Turn on the nice rainbow parentheses but only for round brackets!
-autocmd FileType clojure RainbowParenthesesActivate
-autocmd Syntax clojure RainbowParenthesesLoadRound
-
-" Find it easier to remember 'up' and 'down' for this
-autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
-autocmd FileType clojure set nowrap
-
-" Setup the custom project types
-let projectTypeChecks['project.clj'] = 'leiningen'
-" ... Clojure
+" Various development environments that are applicable
+source $HOME/.vim/vimrc.clojure
 
 " Trying these out, they may disappear!
-Bundle 'SirVer/ultisnips'
 Bundle 'dag/vim2hs'
-Bundle 'dsawardekar/portkey'
 Bundle 'sjl/gundo.vim'
 " ... may disappear!
-
+"
 filetype plugin indent on
-
-" An attempt to add a custom PortKey for Clojure, just for fun!
-let ClojurePortKey = {
-      \ 'name': 'clojure',
-      \ 'path': $HOME . '/.vim/portkeys',
-      \ 'scope': 'clojure'
-      \ }
-function! ClojurePortKey.get_name() dict
-  return self.name
-endfunction
-function! ClojurePortKey.get_portkey_path(major, minor) dict
-  return self.path . '/clojure_port_key.json'
-endfunction
-function! ClojurePortKey.get_scope() dict
-  return self.scope
-endfunction
-function! ClojurePortKey.get_finder(a) dict
-  return 0
-endfunction
-function! ClojurePortKey.get_ranker(a) dict
-  return 0
-endfunction
-function! ClojurePortKey.get_filters() dict
-  return {}
-endfunction
-function! ClojurePortKey.get_syntax_files() dict
-  return {}
-endfunction
-function! ClojurePortKey.configure_inflector(inflector) dict
-endfunction
-function! ClojurePortKey.configure_projection(projection) dict
-endfunction
-function! ClojurePortKey.get_extractors() dict
-  return []
-endfunction
-autocmd FileType clojure call portkey#add_extension(ClojurePortKey)

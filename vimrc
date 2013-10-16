@@ -11,6 +11,15 @@ nmap <leader>vr :source $MYVIMRC<cr>
 nmap <leader>ve :edit $MYVIMRC<cr>
 nmap <leader>vg :!cd $HOME/.vim ; git fetch --all ; git merge origin/master<cr>
 
+" How had I not thought of this one!
+nnoremap ; :
+
+"" Here is a dictionary that maps from a file on disk to the type of project.
+"" This is used to check for the presence of these files and then trigger
+"" custom behaviour.  It's defined here so that it can be updated in the local
+"" vim file if necessary.
+let projectTypeChecks = {}
+
 "" Rock on with vundle ...
 filetype on       " Mac OS X standard vim hack fix
 filetype off
@@ -19,29 +28,56 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "" Here are the plugins (don't comment inline as vundle doesn't like that!)
+
+" Portkey allows jumping between files, which is incredibly handy in larger
+" and more structured projects.
+Bundle 'dsawardekar/portkey'
+
 " ... General vim enhancements ...
 Bundle 'kana/vim-smartinput'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
-
-" Keep the behaviour of window zooming in vim close to that of tmux
 Bundle 'regedarek/ZoomWin'
-
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-dispatch'
 
 Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
 
+" UltiSnips setup
+Bundle 'SirVer/ultisnips'
+let g:UltiSnipsListSnippets = "<s-tab>"
+" ... UltiSnips
+
 " Unite setup
 " ... note: (cd bundle/vimproc.vim ; make -f make_mac.mak)
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-tag'
-call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
+
+" ... useful function to ensure that a standard set of filetypes gets ignored
+" by unite.  Partly wish it would handle .gitignore files.
+function! UpdateUniteIgnores(ignores)
+  let unite_ignore_standard = [
+        \ '\.git/',
+        \ '\.png$', '\.jpg$', '\.gif$', '\.ico$'
+        \ ]
+
+  call unite#custom_source(
+        \ 'file_rec,file_rec/async,file_mru,file,buffer,grep',
+        \ 'ignore_pattern',
+        \ join(unite_ignore_standard + a:ignores, '\|'))
+endfunction
+
 let g:unite_enable_start_insert=1
-nnoremap <c-f> :Unite -buffer-name=files buffer file_rec/async:!<cr>
+call unite#custom_source('file_rec,file_rec/async', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_rank'])
+call UpdateUniteIgnores([])
+
+nnoremap <c-f> :Unite -buffer-name=files buffer file_rec<cr>
+
 nnoremap <leader>tag :Unite tag<cr>
+
 nnoremap <leader>ack :Unite grep:.<cr>
 let g:unite_source_grep_command='ag'
 let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
@@ -83,14 +119,8 @@ let g:airline_powerline_fonts=1
 set laststatus=2
 " ... status line configuration
 
-" HTML + Javascript ...
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'juvenn/mustache.vim'
-autocmd BufRead,BufNewFile *.json   set ft=javascript
-autocmd BufRead,BufNewFile *.scss   set ft=scss
-" ... HTML + Javascript
+" Various development environment configurations ...
+source $HOME/.vim/vimrc.web
 
 "" Rock off vundle ...
 filetype plugin indent on
@@ -148,12 +178,6 @@ nnoremap <c-w>= :ZoomWin<cr>
 
 "" Try to speed up startup time when RVM is installed
 let g:ruby_path = system('rvm current')
-
-"" Here is a dictionary that maps from a file on disk to the type of project.
-"" This is used to check for the presence of these files and then trigger
-"" custom behaviour.  It's defined here so that it can be updated in the local
-"" vim file if necessary.
-let projectTypeChecks = {}
 
 "" Sometimes you need to override this behaviour (like at work for instance!)
 if filereadable(glob("~/.vimrc.local"))

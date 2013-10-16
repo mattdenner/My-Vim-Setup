@@ -3,7 +3,7 @@
 filetype off
 
 " Various development environments that are applicable
-source $HOME/.vim/vimrc.clojure
+source $HOME/.vim/vimrcs/clojure.vim
 
 " Trying these out, they may disappear!
 Bundle 'dag/vim2hs'

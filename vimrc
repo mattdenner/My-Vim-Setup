@@ -156,7 +156,7 @@ set laststatus=2
 " ... status line configuration
 
 " Various development environment configurations ...
-source $HOME/.vim/vimrc.web
+source $HOME/.vim/vimrcs/web.vim
 
 "" Rock off vundle ...
 filetype plugin indent on

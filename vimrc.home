@@ -4,10 +4,10 @@ filetype off
 
 " Various development environments that are applicable
 source $HOME/.vim/vimrcs/clojure.vim
+source $HOME/.vim/vimrcs/haskell.vim
 
 " Trying these out, they may disappear!
-Bundle 'dag/vim2hs'
 Bundle 'sjl/gundo.vim'
 " ... may disappear!
-"
+
 filetype plugin indent on

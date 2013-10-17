@@ -3,8 +3,9 @@ Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'juvenn/mustache.vim'
-autocmd BufRead,BufNewFile *.json   set ft=javascript
+Bundle 'elzr/vim-json'
 autocmd BufRead,BufNewFile *.scss   set ft=scss
 
 let projectTypeChecks['bower.json'] = 'yeoman'
-autocmd User project-yeoman call UpdateUniteIgnores(['app/components/', 'node_modules/', '\.sass-cache/', '\.tmp/'])
+autocmd User project-yeoman call UpdateUniteIgnores()
+" Just in case: ['app/components/', 'node_modules/', '\.sass-cache/', '\.tmp/']

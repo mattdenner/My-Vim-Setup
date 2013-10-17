@@ -36,6 +36,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'regedarek/ZoomWin'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-dispatch'
+Bundle 'scrooloose/syntastic'
 
 Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown

@@ -24,3 +24,4 @@ autocmd FileType clojure set nowrap
 " Setup the custom project type behaviour
 let projectTypeChecks['project.clj'] = 'leiningen'
 autocmd User project-leiningen source $HOME/.vim/portkeys/leiningen.vim
+autocmd User project-leiningen call UpdateUniteIgnores(['target', '\.lein-repl-history$'])

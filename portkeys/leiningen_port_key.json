@@ -1,6 +1,8 @@
 {
   "src/**.clj": {
     "type": "model",
-    "test": "test/%s_test.clj"
+  },
+  "test/**_test.clj": {
+    "type": "test"
   }
 }

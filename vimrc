@@ -107,7 +107,8 @@ function! UpdateUniteIgnores(...)
   " There are some files you just don't want to open in vim ...
   let unite_ignore_standard = [
         \ '\.git/',
-        \ '\.png$', '\.jpg$', '\.gif$', '\.ico$'
+        \ '\.png$', '\.jpg$', '\.gif$', '\.ico$',
+        \ 'LICENSE', 'LICENCE'
         \ ]
 
   " Then there are those that are ignored by git, if we want that ...

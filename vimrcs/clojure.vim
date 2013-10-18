@@ -1,4 +1,5 @@
 " Configuration for clojure development
+Bundle 'tpope/vim-dispatch'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'

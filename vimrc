@@ -4,7 +4,7 @@ set relativenumber                " ... and relative line movements
 set clipboard=unnamed             " reattach-to-user-space for clipboard
 
 " Make some keys a bit more useful
-nnoremap ; :
+noremap ; :
 let mapleader = ","
 map Y y$
 
@@ -85,7 +85,6 @@ Bundle 'kana/vim-smartinput'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/syntastic'
 
 Bundle 'plasticboy/vim-markdown'
@@ -104,6 +103,9 @@ Bundle 'kana/vim-textobj-indent'
 
 " Various development environment configurations ...
 source $HOME/.vim/vimrcs/web.vim
+
+" Plugins I've tried and why they aren't staying, but may come back:
+" sjl/gundo.vim - tend to only undo my last change, so not really used it
 
 "" Rock off vundle ...
 filetype plugin indent on

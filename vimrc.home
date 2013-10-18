@@ -7,7 +7,6 @@ source $HOME/.vim/vimrcs/clojure.vim
 source $HOME/.vim/vimrcs/haskell.vim
 
 " Trying these out, they may disappear!
-Bundle 'sjl/gundo.vim'
 " ... may disappear!
 
 filetype plugin indent on

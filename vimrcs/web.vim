@@ -6,6 +6,6 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'elzr/vim-json'
 autocmd BufRead,BufNewFile *.scss   set ft=scss
 
-let projectTypeChecks['bower.json'] = 'yeoman'
+let g:projectTypeChecks['bower.json'] = 'yeoman'
 autocmd User project-yeoman call UpdateUniteIgnores()
 " Just in case: ['app/components/', 'node_modules/', '\.sass-cache/', '\.tmp/']

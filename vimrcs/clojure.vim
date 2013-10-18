@@ -22,6 +22,6 @@ autocmd FileType clojure set nowrap
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W
 
 " Setup the custom project type behaviour
-let projectTypeChecks['project.clj'] = 'leiningen'
+let g:projectTypeChecks['project.clj'] = 'leiningen'
 autocmd User project-leiningen source $HOME/.vim/portkeys/leiningen.vim
 autocmd User project-leiningen call UpdateUniteIgnores()

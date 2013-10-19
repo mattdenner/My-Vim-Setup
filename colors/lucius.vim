@@ -226,8 +226,8 @@ hi ErrorMsg         ctermfg=196             ctermbg=NONE            cterm=none
 hi VertSplit        guifg=#777777           guibg=#363946           gui=none
 hi VertSplit        ctermfg=242             ctermbg=237             cterm=none
 " columns where signs are displayed (used in IDEs)
-hi SignColumn       guifg=#9fafaf           guibg=#181818           gui=none
-hi SignColumn       ctermfg=145             ctermbg=233             cterm=none
+hi SignColumn       guifg=#818698           guibg=#363946           gui=none 
+hi SignColumn       ctermfg=102             ctermbg=237             cterm=none
 " line numbers
 hi LineNr           guifg=#818698           guibg=#363946
 hi LineNr           ctermfg=102             ctermbg=237

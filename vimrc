@@ -2,6 +2,7 @@ set nocompatible                  " choose no compatibility with legacy vi
 set number                        " show line numbers ...
 set relativenumber                " ... and relative line movements
 set clipboard=unnamed             " reattach-to-user-space for clipboard
+color lucius                      " colour
 
 " Make some keys a bit more useful
 noremap ; :
@@ -47,10 +48,6 @@ command! CTags :!ctags -R
 
 "" Various file type changes
 autocmd BufRead,BufNewFile *.txt    set ft=text
-
-" Appearance
-color lucius                " jellybeans is good too
-hi SignColumn      guifg=#818698 guibg=#363946 ctermfg=102 ctermbg=237 gui=none cterm=none
 
 " Project type detection ...
 source $HOME/.vim/vimrcs/project.vim

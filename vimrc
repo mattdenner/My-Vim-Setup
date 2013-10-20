@@ -82,7 +82,10 @@ Bundle 'kana/vim-smartinput'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
+
 Bundle 'scrooloose/syntastic'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
 
 Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown

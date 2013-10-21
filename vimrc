@@ -7,6 +7,9 @@ color lucius                      " colour
 " Ensure vim files wrap correctly, with comments but not lines!
 autocmd FileType vim setlocal textwidth=100 formatoptions=croq
 
+" TODO: Disable syntastic and add a keymapping
+" TODO: Fix wrapping width on gitcommit
+
 " Make some keys a bit more useful
 noremap ; :
 let mapleader = ","
@@ -67,6 +70,18 @@ Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'regedarek/ZoomWin'
 
+" Syntastic, needed before various language files loaded
+Bundle 'scrooloose/syntastic'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_enable_ballons=0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_mode_map = {
+      \ 'mode': 'active',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': []
+      \}
+
 " These plugins have a load of extra stuff around them, so it's nicer to put
 " them in separate files.
 source $HOME/.vim/vimrcs/portkey.vim
@@ -75,6 +90,7 @@ source $HOME/.vim/vimrcs/git.vim
 
 " Status line configuration ...
 Bundle 'bling/vim-airline'
+let g:airline_enable_syntastic=1
 let g:airline_powerline_fonts=1
 set laststatus=2
 " ... status line configuration
@@ -84,11 +100,6 @@ Bundle 'kana/vim-smartinput'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
-
-Bundle 'scrooloose/syntastic'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_enable_ballons=0
 
 Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd setlocal textwidth=100

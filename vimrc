@@ -4,6 +4,9 @@ set relativenumber                " ... and relative line movements
 set clipboard=unnamed             " reattach-to-user-space for clipboard
 color lucius                      " colour
 
+" Ensure vim files wrap correctly, with comments but not lines!
+autocmd FileType vim setlocal textwidth=100 formatoptions=croq
+
 " Make some keys a bit more useful
 noremap ; :
 let mapleader = ","
@@ -72,7 +75,6 @@ source $HOME/.vim/vimrcs/git.vim
 
 " Status line configuration ...
 Bundle 'bling/vim-airline'
-let g:airline_enable_syntastic=0
 let g:airline_powerline_fonts=1
 set laststatus=2
 " ... status line configuration
@@ -86,9 +88,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
+let g:syntastic_enable_ballons=0
 
 Bundle 'plasticboy/vim-markdown'
-autocmd FileType text,markdown,mkd  setlocal wrapmargin=20 | setlocal linebreak | setlocal wrap  " Ensure wrapping happens properly for text & markdown
+autocmd FileType text,markdown,mkd setlocal textwidth=100
 
 " UltiSnips setup
 Bundle 'SirVer/ultisnips'

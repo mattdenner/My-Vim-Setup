@@ -79,7 +79,7 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes': [],
-      \ 'passive_filetypes': []
+      \ 'passive_filetypes': ['gitcommit']
       \}
 
 " These plugins have a load of extra stuff around them, so it's nicer to put

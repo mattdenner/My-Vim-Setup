@@ -81,6 +81,7 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes': [],
       \ 'passive_filetypes': ['gitcommit']
       \}
+nnoremap <leader>sc :SyntasticCheck<cr>
 
 " These plugins have a load of extra stuff around them, so it's nicer to put
 " them in separate files.

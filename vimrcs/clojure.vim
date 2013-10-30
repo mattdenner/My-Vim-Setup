@@ -17,7 +17,7 @@ let g:rbpt_max = 7
 " Turn on the nice rainbow parentheses but only for round brackets!
 autocmd FileType clojure RainbowParenthesesActivate
 autocmd Syntax   clojure RainbowParenthesesLoadRound
-autocmd FileType clojure set nowrap
+autocmd FileType clojure setlocal nowrap textwidth=120 formatoptions=crq
 
 " Find it easier to remember 'up' and 'down' for this
 autocmd FileType clojure nmap <buffer> <Leader>wu <Leader>I | nmap <buffer> <Leader>wd <Leader>W

@@ -119,6 +119,7 @@ Bundle 'kana/vim-textobj-indent'
 
 " Various development environment configurations ...
 source $HOME/.vim/vimrcs/web.vim
+source $HOME/.vim/vimrcs/clojure.vim
 
 " Plugins I've tried and why they aren't staying, but may come back:
 " sjl/gundo.vim - tend to only undo my last change, so not really used it

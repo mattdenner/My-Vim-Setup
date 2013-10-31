@@ -25,8 +25,8 @@ nnoremap <c-W>- :split<cr>
 nnoremap <c-W>\ :vsplit<cr>
 nnoremap <c-w>= :ZoomWin<cr>
 
-"" Try to speed up startup time when RVM is installed
-let g:ruby_path = system('rvm current')
+" Improve startup of vim by using rbenv as the ruby manager.
+let g:ruby_path = glob('~/.rbenv/shims')
 
 "" Directories for swp files
 set backupdir=~/.vim/backup

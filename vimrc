@@ -107,7 +107,10 @@ autocmd FileType text,markdown,mkd setlocal textwidth=100
 
 " UltiSnips setup
 Bundle 'SirVer/ultisnips'
-let g:UltiSnipsListSnippets = "<s-tab>"
+let g:UltiSnipsEditSplit           = "horizontal"
+let g:UltiSnipsListSnippets        = "<s-tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " ... UltiSnips
 
 "" Text objects ...

@@ -101,7 +101,6 @@ set laststatus=2
 Bundle 'kana/vim-smartinput'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'plasticboy/vim-markdown'
 autocmd FileType text,markdown,mkd setlocal textwidth=100

@@ -1,0 +1,3 @@
+filetype off
+Bundle 'rodjek/vim-puppet'
+filetype on

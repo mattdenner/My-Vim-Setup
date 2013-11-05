@@ -38,6 +38,7 @@ function! UpdateUniteIgnores(...)
       " Two special cases: recursive match at end, and emacs files
       let r = substitute(r, '\*\*$', '', '')
       let r = substitute(r, '\*\?\~$', '\\\~$', '') 
+      let r = substitute(r, '^#\*\.\*$', '#\[^\/\]\*\.\[^\/\]\*', '')
 
       " Handle file extensions, but not directories
       let r = substitute(substitute(r, '^\*\?\(\..*\)$', '\1$', ''), '/\$$', '/', '')

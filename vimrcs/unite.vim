@@ -20,6 +20,7 @@ function! UpdateUniteIgnores(...)
   let unite_ignore_standard = [
         \ '\.git/',
         \ '\.png$', '\.jpg$', '\.gif$', '\.ico$',
+        \ '\.xls$', '\.doc$',
         \ 'LICENSE', 'LICENCE'
         \ ]
 

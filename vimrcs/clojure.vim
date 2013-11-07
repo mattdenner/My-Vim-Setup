@@ -1,5 +1,5 @@
 " Configuration for clojure development
-"Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-dispatch'
 Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
@@ -29,3 +29,4 @@ autocmd FileType clojure nmap <buffer> <Leader>wk <Leader>I |
 let g:projectTypeChecks['project.clj'] = 'leiningen'
 autocmd User project-leiningen source $HOME/.vim/portkeys/leiningen.vim
 autocmd User project-leiningen call UpdateUniteIgnores()
+autocmd User project-leiningen command! Repl Start! lein repl

@@ -1,6 +1,5 @@
 " Configuration for clojure development
 Bundle 'tpope/vim-dispatch'
-Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 
@@ -18,12 +17,16 @@ Bundle 'amdt/vim-niji'
 " Turn on the nice rainbow parentheses but only for round brackets!
 autocmd FileType clojure setlocal nowrap textwidth=120 formatoptions=crq
 
-" Directional movements feel better for parentheses handling
-autocmd FileType clojure nmap <buffer> <Leader>wk <Leader>I |
-      \ nmap <buffer> <Leader>wj <Leader>W |
-      \ nmap <buffer> <Leader>wl <Leader>> |
-      \ nmap <buffer> <Leader>wh <Leader>< |
-      \ vmap <buffer> <Leader>wj <Leader>W
+" Setup the standard paredit behaviour
+"Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
+"autocmd FileType clojure nmap <buffer> <Leader>wk <Leader>I |
+"      \ nmap <buffer> <Leader>wj <Leader>W |
+"      \ nmap <buffer> <Leader>wl <Leader>> |
+"      \ nmap <buffer> <Leader>wh <Leader>< |
+"      \ vmap <buffer> <Leader>wj <Leader>W
+
+Bundle 'tpope/vim-repeat'
+Bundle 'guns/vim-sexp'
 
 " Setup the custom project type behaviour
 let g:projectTypeChecks['project.clj'] = 'leiningen'

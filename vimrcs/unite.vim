@@ -35,7 +35,13 @@ function! UpdateUniteIgnores(...)
     let gitignore = a:1
   endif
   if gitignore
-    for r in split(system('cat .gitignore'))
+    for r in split(system('cat .gitignore'), '\n')
+      " Remove comments & skip any blank lines
+      let r = substitute(r, '^# .*$', '', '')
+      if empty(r)
+        continue
+      endif
+
       " Two special cases: recursive match at end, and emacs files
       let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
       let r = substitute(r, '\*\?\~$', '\\\~$', '') 

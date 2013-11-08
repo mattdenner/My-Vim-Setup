@@ -17,14 +17,18 @@ Bundle 'amdt/vim-niji'
 " Turn on the nice rainbow parentheses but only for round brackets!
 autocmd FileType clojure setlocal nowrap textwidth=120 formatoptions=crq
 
-" Setup the standard paredit behaviour
-"Bundle 'hg::https://bitbucket.org/kovisoft/paredit'
-"autocmd FileType clojure nmap <buffer> <Leader>wk <Leader>I |
-"      \ nmap <buffer> <Leader>wj <Leader>W |
-"      \ nmap <buffer> <Leader>wl <Leader>> |
-"      \ nmap <buffer> <Leader>wh <Leader>< |
-"      \ vmap <buffer> <Leader>wj <Leader>W
-
+" Use vim-sexp instead of paredit because the behaviour is more understandable
+" for me, sort of.  For instance '<LocalLeader>O' and '<LocalLeader>@' look
+" similar and do similar-ish, things.  Unfortunately no support for META key
+" in the terminal means some remappings.
+let g:sexp_mappings = {
+      \ 'sexp_capture_prev_element': '<LocalLeader>h',
+      \ 'sexp_emit_head_element':    '<LocalLeader>j',
+      \ 'sexp_capture_next_element': '<LocalLeader>l',
+      \ 'sexp_emit_tail_element':    '<LocalLeader>k',
+      \ 'sexp_swap_list_backward':   '<LocalLeader>H',
+      \ 'sexp_swap_list_forward':    '<LocalLeader>L'
+      \ }
 Bundle 'tpope/vim-repeat'
 Bundle 'guns/vim-sexp'
 

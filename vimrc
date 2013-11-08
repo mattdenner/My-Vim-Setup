@@ -12,7 +12,8 @@ autocmd FileType vim setlocal textwidth=100 formatoptions=croq
 
 " Make some keys a bit more useful
 noremap ; :
-let mapleader = ","
+let mapleader = ','
+let maplocalleader = ','
 map Y y$
 
 " I spent a load of time messing with this file!

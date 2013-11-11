@@ -3,6 +3,11 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 
+autocmd User project-leiningen command! Repl Start! lein repl
+autocmd User project-leiningen nmap <LocalLeader>R :Repl<cr>
+autocmd FileType clojure nmap <LocalLeader>E :Eval<cr>
+autocmd FileType clojure nmap <C-]> [<C-D> | nmap <C-[> <C-W><C-D>
+
 " Colour the parentheses in Clojure.  Especially those over a certain depth because it
 " hints at there being something crap in the code.
 let g:niji_clojure_characters = [['(', ')']]
@@ -36,4 +41,3 @@ Bundle 'guns/vim-sexp'
 let g:projectTypeChecks['project.clj'] = 'leiningen'
 autocmd User project-leiningen source $HOME/.vim/portkeys/leiningen.vim
 autocmd User project-leiningen call UpdateUniteIgnores()
-autocmd User project-leiningen command! Repl Start! lein repl

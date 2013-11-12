@@ -7,7 +7,7 @@ Bundle 'tsukkee/unite-tag'
 " Handy function for parsing gitignore files, which can be repeatedly used.
 function! ParseGitIgnores(filename)
   let gitignored = []
-  for r in split(system('cat ' . a:filename), '\n')
+  for r in readfile(glob(a:filename))
     " Remove comments & skip any blank lines
     let r = substitute(r, '^# .*$', '', '')
     if empty(r)

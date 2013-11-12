@@ -4,6 +4,30 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 'tsukkee/unite-tag'
 
+" Handy function for parsing gitignore files, which can be repeatedly used.
+function! ParseGitIgnores(filename)
+  let gitignored = []
+  for r in split(system('cat ' . a:filename), '\n')
+    " Remove comments & skip any blank lines
+    let r = substitute(r, '^# .*$', '', '')
+    if empty(r)
+      continue
+    endif
+
+    " Two special cases: recursive match at end, and emacs files
+    let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
+    let r = substitute(r, '\*\?\~$', '\\\~$', '') 
+    let r = substitute(r, '^#\*\.\*$', '#\[^\/\]\*\.\[^\/\]\*', '')
+
+    " Handle file extensions, but not directories
+    let r = substitute(substitute(r, '^\*\?\(\..*\)$', '\1$', ''), '/\$$', '/', '')
+
+    " Escape all dots as dots!
+    call add(gitignored, substitute(r, '\.', '\\.', 'g'))
+  endfor
+  return gitignored
+endfunction
+
 " Useful function for updating the Unite ignore pattern.  It takes variable
 " arguments thus:
 "
@@ -28,38 +52,22 @@ function! UpdateUniteIgnores(...)
   let gitignored = []
   let gitignore  = 1
   if (a:0 == 2)
-    echo "SECOND IGNORE"
     let gitignore = a:2
   elseif (a:0 == 1) && (type(a:1) == 0)
-    echo "FIRST IGNORE"
     let gitignore = a:1
   endif
   if gitignore
-    for r in split(system('cat .gitignore'), '\n')
-      " Remove comments & skip any blank lines
-      let r = substitute(r, '^# .*$', '', '')
-      if empty(r)
-        continue
-      endif
-
-      " Two special cases: recursive match at end, and emacs files
-      let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
-      let r = substitute(r, '\*\?\~$', '\\\~$', '') 
-      let r = substitute(r, '^#\*\.\*$', '#\[^\/\]\*\.\[^\/\]\*', '')
-
-      " Handle file extensions, but not directories
-      let r = substitute(substitute(r, '^\*\?\(\..*\)$', '\1$', ''), '/\$$', '/', '')
-
-      " Escape all dots as dots!
-      call add(gitignored, substitute(r, '\.', '\\.', 'g'))
-    endfor
+    let gitignored = ParseGitIgnores('.gitignore')
+    let globalgit  = split(system('git config --global --get core.excludesfile'), '\n')[0]
+    if filereadable(globalgit)
+      let gitignored = gitignored + ParseGitIgnores(globalgit)
+    endif
   endif
 
   " Custom ones can be passed.
   let custom = []
   if (a:0 > 1) && (type(a:1) != 0)
     let custom = a:1
-    echo "Custom!"
   endif
 
   call unite#custom_source(

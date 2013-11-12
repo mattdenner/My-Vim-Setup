@@ -1,12 +1,42 @@
 " Configuration for clojure development
-Bundle 'tpope/vim-dispatch'
+" Bundle 'tpope/vim-dispatch'
+Bundle 'benmills/vimux'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 
-autocmd User project-leiningen command! Repl Start! lein repl
+" When we're in a leiningen project it would be very nice to have a repl available, quickly.
+autocmd User project-leiningen command! Repl     call OpenRepl()
+autocmd User project-leiningen command! ReplQuit call CloseRepl()
+autocmd User project-leiningen autocmd VimLeave * call CloseRepl()
 autocmd User project-leiningen nmap <LocalLeader>R :Repl<cr>
 autocmd FileType clojure nmap <LocalLeader>E :Eval<cr>
 autocmd FileType clojure nmap <C-]> m`[<C-D> | nmap <C-[> <C-W><C-D>
+
+function! OpenRepl()
+  call VimuxRunCommand('lein repl')
+  call ConnectToRepl()
+endfunction
+
+function! CloseRepl()
+  call VimuxSendText('quit')
+  call VimuxSendKeys('Enter')
+  call VimuxCloseRunner()
+endfunction
+
+function! ConnectToRepl()
+  " We have to wait until the repl is up-and-running before we can identify the port on which to
+  " connect fireplace.  We give it a reasonable time to start up.
+  " TODO: this sucks, make it better!
+  for i in [1,2,3,4,5,6,7,8,9,10]
+    if filereadable(glob('.nrepl-port'))
+      let nrepl_port = readfile(glob('.nrepl-port'))[0]
+      execute ':FireplaceConnect nrepl://127.0.0.1:' . nrepl_port . ' .'
+      return
+    endif
+    sleep 2
+  endfor
+  echoerr "Cannot connect to the repl"
+endfunction
 
 " Colour the parentheses in Clojure.  Especially those over a certain depth because it
 " hints at there being something crap in the code.

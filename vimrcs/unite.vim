@@ -7,24 +7,26 @@ Bundle 'tsukkee/unite-tag'
 " Handy function for parsing gitignore files, which can be repeatedly used.
 function! ParseGitIgnores(filename)
   let gitignored = []
-  for r in readfile(glob(a:filename))
-    " Remove comments & skip any blank lines
-    let r = substitute(r, '^# .*$', '', '')
-    if empty(r)
-      continue
-    endif
+  if filereadable(a:filename)
+    for r in readfile(glob(a:filename))
+      " Remove comments & skip any blank lines
+      let r = substitute(r, '^# .*$', '', '')
+      if empty(r)
+        continue
+      endif
 
-    " Two special cases: recursive match at end, and emacs files
-    let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
-    let r = substitute(r, '\*\?\~$', '\\\~$', '') 
-    let r = substitute(r, '^#\*\.\*$', '#\[^\/\]\*\.\[^\/\]\*', '')
+      " Two special cases: recursive match at end, and emacs files
+      let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
+      let r = substitute(r, '\*\?\~$', '\\\~$', '') 
+      let r = substitute(r, '^#\*\.\*$', '#\[^\/\]\*\.\[^\/\]\*', '')
 
-    " Handle file extensions, but not directories
-    let r = substitute(substitute(r, '^\*\?\(\..*\)$', '\1$', ''), '/\$$', '/', '')
+      " Handle file extensions, but not directories
+      let r = substitute(substitute(r, '^\*\?\(\..*\)$', '\1$', ''), '/\$$', '/', '')
 
-    " Escape all dots as dots!
-    call add(gitignored, substitute(r, '\.', '\\.', 'g'))
-  endfor
+      " Escape all dots as dots!
+      call add(gitignored, substitute(r, '\.', '\\.', 'g'))
+    endfor
+  endif
   return gitignored
 endfunction
 

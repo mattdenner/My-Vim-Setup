@@ -78,16 +78,15 @@ function! UpdateUniteIgnores(...)
         \ join(unite_ignore_standard + gitignored + custom, '\|'))
 endfunction
 
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=0
 call unite#custom_source('file_rec,file_rec/async', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_rank'])
 call UpdateUniteIgnores([])
 
-nnoremap <c-f> :Unite -buffer-name=files buffer file_rec<cr>
-
+nnoremap <c-f> :Unite -buffer-name=files -start-insert buffer file_rec<cr>
 nnoremap <leader>tag :Unite -buffer-name=tags tag<cr>
-
 nnoremap <leader>ack :Unite -buffer-name=greps grep:.<cr>
+
 let g:unite_source_grep_command='ag'
 let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden'
 let g:unite_source_grep_recursive_opt=''

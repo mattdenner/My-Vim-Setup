@@ -60,9 +60,9 @@ function! UpdateUniteIgnores(...)
   endif
   if gitignore
     let gitignored = ParseGitIgnores('.gitignore')
-    let globalgit  = split(system('git config --global --get core.excludesfile'), '\n')[0]
-    if filereadable(globalgit)
-      let gitignored = gitignored + ParseGitIgnores(globalgit)
+    let globalgit  = split(system('git config --global --get core.excludesfile'), '\n')
+    if len(globalgit) > 0 && filereadable(globalgit[0])
+      let gitignored = gitignored + ParseGitIgnores(globalgit[0])
     endif
   endif
 

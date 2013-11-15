@@ -15,6 +15,9 @@ function! ParseGitIgnores(filename)
         continue
       endif
 
+      " People really, really, really want to be recursive!
+      let r = substitute(r, '\*\*\/\*\*', '', '')
+
       " Two special cases: recursive match at end, and emacs files
       let r = substitute(r, '\*\*\(\/\*\)\?$', '', '')
       let r = substitute(r, '\*\?\~$', '\\\~$', '') 
@@ -80,7 +83,7 @@ endfunction
 
 let g:unite_enable_start_insert=0
 call unite#custom_source('file_rec,file_rec/async', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_rank'])
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_reverse'])
 call UpdateUniteIgnores([])
 
 nnoremap <c-f> :Unite -buffer-name=files -start-insert buffer file_rec<cr>

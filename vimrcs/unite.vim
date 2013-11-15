@@ -88,7 +88,7 @@ call UpdateUniteIgnores([])
 
 nnoremap <c-f> :Unite -buffer-name=files -start-insert buffer file_rec<cr>
 nnoremap <leader>ack :Unite -buffer-name=greps grep:.<cr>
-nnoremap <leader>aw "zyw:Unite -buffer-name=greps grep:.::<C-R>z<cr>
+nnoremap <leader>A "zyw:Unite -buffer-name=greps grep:.::<C-R>z<cr>
 nnoremap <leader>tag :Unite -buffer-name=tags tag<cr>
 
 let g:unite_source_grep_command='ag'

@@ -50,7 +50,8 @@ function! UpdateUniteIgnores(...)
         \ '\.git/',
         \ '\.png$', '\.jpg$', '\.gif$', '\.ico$',
         \ '\.xls$', '\.doc$',
-        \ 'LICENSE', 'LICENCE'
+        \ 'LICENSE', 'LICENCE',
+        \ '\.log$'
         \ ]
 
   " Then there are those that are ignored by git, if we want that ...

@@ -1,3 +1,7 @@
 filetype off
 Bundle 'rodjek/vim-puppet'
+
+" Various development environments that are applicable
+source $HOME/.vim/vimrcs/ruby.vim
+
 filetype on

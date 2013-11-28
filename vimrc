@@ -94,6 +94,7 @@ source $HOME/.vim/vimrcs/git.vim
 " Status line configuration ...
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
+Bundle 'edkolev/tmuxline.vim'
 let g:airline_theme='airlineish'
 let g:airline_enable_syntastic=1
 let g:airline_powerline_fonts=1

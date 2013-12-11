@@ -84,7 +84,7 @@ endfunction
 
 let g:unite_enable_start_insert=0
 call unite#custom_source('file_rec,file_rec/async', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_reverse'])
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep', 'sorters', ['sorter_rank'])
 call UpdateUniteIgnores([])
 
 nnoremap <c-f> :Unite -buffer-name=files -start-insert buffer file_rec<cr>
